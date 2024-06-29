@@ -1,0 +1,50 @@
+.dialog__background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 50vh;
+}
+
+.dialog__child{
+    width: 27rem;
+    height: 15rem;
+    background-color: var(--theme-bg-grey-nav);
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid #4f90c6;
+    border-right: 1px solid #2b5b84;
+    border-bottom: 1px solid #1e415e;
+    border-left: 1px solid #4f90c6;
+}
+
+.dialog__function--head{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    height: 13%;
+}
+
+.close__dialog--head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 10%;
+    background-color: red;
+    border-radius: 0rem 0rem 0rem 0.5rem;
+}
+
+.close__dialog--head:hover{
+    background-color: rgb(218, 5, 5);
+}
+
+.close__dialog--head i {
+    background-color: inherit;
+    color: #FFCC00;
+}
+
+.close__dialog--head i:hover{
+    background-color: inherit;
+}

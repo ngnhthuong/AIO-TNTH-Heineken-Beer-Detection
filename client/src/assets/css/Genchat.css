@@ -1,0 +1,463 @@
+.genchat {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  background-color: var(--theme-bg-grey-main);
+}
+
+.genchat__nav {
+  width: 300px;
+  height: 100%;
+  background-color: var(--theme-bg-grey-main);
+  border-left: 1px solid var(--theme-bg-grey-nav);
+}
+
+.genchat__mains {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 300px - 20px);
+  height: 100%;
+  background-color: var(--theme-bg-grey-main);
+}
+
+.include__button--open {
+  position: relative;
+  left: 0;
+}
+
+.include__button--close {
+  position: absolute;
+  right: 0;
+}
+
+.include__button--open button,
+.include__button--close button {
+  width: 20px;
+  border: none;
+  background-color: transparent;
+}
+
+.include__button--open button i,
+.include__button--close button i {
+  font-size: 1.3rem;
+  color: #ffcc00;
+}
+
+/* Genchat nav */
+
+.genchat__nav--info {
+  width: 100%;
+  max-height: 100%;
+  background-color: var(--theme-bg-grey-main);
+  overflow: scroll;
+  overflow-x: hidden;
+  padding: 2rem 0.5rem 0.5rem 0.5rem;
+}
+
+.genchat__nav--info::-webkit-scrollbar {
+  width: 0;
+}
+
+.genchat__nav--info:hover::-webkit-scrollbar {
+  width: 0;
+}
+
+.genchat__nav--info::-webkit-scrollbar-thumb {
+  background-color: var(--theme-bg-grey-main);
+  border-radius: 4px;
+}
+
+.genchat__nav--info:hover::-webkit-scrollbar-thumb {
+  background-color: var(--theme-bg-grey-scroll);
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 2.8rem;
+  background-color: #2b5b84;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.search input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #2b5b84;
+  padding-left: 0.5rem;
+  color: white;
+  padding-right: 17%;
+  border-top: 1px solid #4f90c6;
+  border-right: 1px solid #2b5b84;
+  border-bottom: 1px solid #1e415e;
+  border-left: 1px solid #4f90c6;
+  border-radius: 0.5rem;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.search button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 15%;
+  height: 100%;
+  border: none;
+  background-color: #ffcc00;
+  border-top: 1px solid #ffcc00; /* Set the top border color to #ffcc00 */
+  border-right: 1px solid #ffcc99; /* Set the right border color to a different shade */
+  border-bottom: 1px solid #ffcc33; /* Set the bottom border color to a different shade */
+  border-left: 1px solid #ffcc66; /* Set the left border color to a     */
+  color: white;
+}
+
+.search button:hover {
+  background-color: #efbf00;
+}
+
+/* Gen chat main */
+.genchat__main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 100%;
+  height: 100%;
+}
+
+.genchat__main--head {
+  width: 90%;
+  height: 3rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  flex-direction: row;
+}
+
+.genchat__main--head--func--item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  border-top: 1px solid #4f90c6;
+  border-right: 1px solid #2b5b84;
+  border-bottom: 1px solid #1e415e;
+  border-left: 1px solid #4f90c6;
+  background-color: #2b5b84;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 1rem;
+}
+
+.genchat__main--head--func--item:hover {
+  background-color: #1e415e;
+}
+
+.genchat__main--head--func--item i {
+  font-size: 1rem;
+  color: #ffcc00;
+}
+
+.genchat__main--chat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: calc(100% - 3rem);
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.genchat__main--displaytext {
+  position: relative;
+  width: 90%;
+  max-height: 80%;
+  overflow: scroll;
+  overflow-x: hidden;
+  z-index: 1;
+}
+
+.genchat__main--displaytext::-webkit-scrollbar {
+  width: 0;
+}
+
+.genchat__bots--message {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 4px;
+}
+
+.genchat__avatars {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+  color: white;
+  font-weight: ;
+}
+
+.genchat__avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.genchat__avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  object-fit: cover;
+}
+
+.genchat__context {
+  width: 100%;
+  padding-left: 40px;
+  color: white;
+  text-wrap: wrap;
+  line-height: 1.3rem;
+}
+
+.child {
+  margin-top: 1rem;
+  width: 100%;
+  height: 10rem;
+  padding: 0.5rem;
+}
+
+.genchat__main--inputext {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  bottom: 0;
+  width: 90%;
+  max-height: 20%;
+  border-radius: 1rem;
+  border: 2px solid var(--theme-bg-grey-nav);
+  padding: 12px;
+  gap: 0.5rem;
+}
+
+.input__text {
+  padding-top: 12px;
+  width: 100%;
+  height: calc(100% - 25% - 1.6rem);
+  resize: none;
+  border: none;
+  background-color: transparent;
+  overscroll-behavior: contain;
+  color: white;
+}
+
+.input__text:focus {
+  outline: none;
+  resize: none;
+}
+
+.input__text::-webkit-scrollbar {
+  width: 0;
+}
+
+.input__text:hover::-webkit-scrollbar {
+  width: 5px;
+}
+
+.input__text::-webkit-scrollbar-thumb {
+  background-color: var(--theme-bg-grey-main);
+  border-radius: 4px;
+}
+.input__text:hover::-webkit-scrollbar-thumb {
+  background-color: var(--theme-bg-grey-scroll);
+}
+
+.genchat__main--displayimg {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 100%;
+  height: 25%;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Hide vertical overflow */
+  padding-bottom: 0.2rem;
+}
+
+hr {
+  border: none; /* Loại bỏ viền mặc định */
+  height: 0.5px; /* Đặt chiều cao cho đường kẻ */
+  background-color: #aaaaaa; /* Màu sắc của đường kẻ, bạn có thể thay đổi màu sắc theo ý muốn */
+}
+
+.image-container {
+  position: relative;
+  height: 100%;
+  width: auto;
+  border-radius: 0.7rem;
+}
+
+.genchat__main--displayimg .image-container img {
+  width: auto;
+  height: 100%;
+  width: auto;
+}
+
+.image-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 1.2rem;
+  height: 1.2rem;
+  top: 0rem;
+  right: -0.5rem;
+  z-index: 9;
+  border: none;
+  color: #ffcc00;
+  background-color: inherit;
+  overflow: hidden;
+  border-radius: 5rem;
+  background-color: rgb(233, 0, 0);
+}
+
+.image-container button i {
+  font-size: 0.6rem;
+}
+
+.genchat__main--displayimg::-webkit-scrollbar {
+  height: 0.3rem;
+}
+
+.genchat__main--displayimg::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: azure;
+}
+
+.genchat__main--chatfun {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: end;
+  gap: 1rem;
+  max-height: 1.6rem;
+  padding-top: 0.2rem;
+}
+
+.input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.input-wrapper i {
+  box-sizing: none;
+  color: rgb(197, 197, 197, 0.4);
+
+  font-size: 1.5rem;
+}
+.button__send {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+  border: none;
+  height: 100%;
+}
+
+.button__send img,
+.input-wrapper img {
+  height: 100%;
+  width: auto;
+}
+
+.history__nav {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1rem;
+  color: white;
+  gap: 0.2rem;
+}
+
+.genchat__nav--child {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+  width: 100%;
+  color: white;
+  height: 2.5rem;
+  background-color: #2b5b84;
+  border-top: 1px solid #4f90c6;
+  border-right: 1px solid #2b5b84;
+  border-bottom: 1px solid #1e415e;
+  border-left: 1px solid #4f90c6;
+  border-radius: 0.2;
+  border-radius: 0.2rem;
+}
+
+.genchat__nav--child p {
+  width: 90%;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.genchat__nav--child i {
+  color: #ffcc00;
+  z-index: 1;
+  display: none;
+}
+.genchat__nav--child:hover i {
+  color: #ffcc00;
+  display: block;
+}
+
+.genchat__nav--child:hover {
+  background-color: #1e415e;
+}
+
+.day_tags {
+  background-color: #2b5b84;
+  width: -moz-max-content;
+  width: -webkit-max-content;
+  width: max-content;
+  padding: 0.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  color: #ffcc00;
+  border-top: 1px solid #4f90c6;
+  border-right: 1px solid #2b5b84;
+  border-bottom: 1px solid #1e415e;
+  border-left: 1px solid #4f90c6;
+  letter-spacing: 1px;
+}
+
+.dialog_func {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background-color: var(--dialog-background);
+}

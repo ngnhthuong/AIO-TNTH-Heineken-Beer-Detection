@@ -1,0 +1,57 @@
+:root {
+    --theme-bg-grey-nav: #052034;
+    --dialog-background:  rgba(0, 0, 0, 0.3);
+    --theme-bg-grey-scroll: rgba(204, 204, 206, 0.1);
+    --theme-bg-button-nav: #77777e;
+    --theme-bg-grey-main: #000c15;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+#main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+}
+
+.main__child--left{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 100%;
+    padding: 0 0.5rem 0 0.5rem;
+    background-color: var(--theme-bg-grey-nav);
+}
+
+.main__left--logo{
+    width: 100%;
+    height: 13%;
+}
+
+.main__left--logo .logo{
+    width: 100%;
+}
+
+.main__child--right{
+    width: calc(100% - 300px);
+    height: 100%;
+    background-color: var(--theme-bg-grey-main); 
+}
+
+.genchat__main--inputext:hover, .genchat__main--inputext:checked, .genchat__main--inputext:focus{
+    border: 2px solid rgb(255, 255, 121);
+}
+
+.name{
+    color: #FFCC00;
+    font-weight: bold;
+}
