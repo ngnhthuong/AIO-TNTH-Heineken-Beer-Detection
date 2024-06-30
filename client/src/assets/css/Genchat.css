@@ -6,7 +6,7 @@
   flex-direction: row;
   width: 100%;
   height: 100%;
-  background-color: var(--theme-bg-grey-main);
+  background-color: var(--theme-bg-grey-main-new);
 }
 
 .genchat__nav {
@@ -22,7 +22,7 @@
   align-items: center;
   width: calc(100% - 300px - 20px);
   height: 100%;
-  background-color: var(--theme-bg-grey-main);
+  background-color: var(--theme-bg-grey-main-new);
 }
 
 .include__button--open {
@@ -209,8 +209,8 @@
   align-items: center;
   flex-direction: row;
   gap: 0.5rem;
-  color: white;
-  font-weight: ;
+  color: rgb(0, 0, 0);
+  /* font-weight: ; */
 }
 
 .genchat__avatar img {
@@ -229,7 +229,7 @@
 .genchat__context {
   width: 100%;
   padding-left: 40px;
-  color: white;
+  /* color: white; */
   text-wrap: wrap;
   line-height: 1.3rem;
 }
@@ -263,7 +263,7 @@
   border: none;
   background-color: transparent;
   overscroll-behavior: contain;
-  color: white;
+  /* color: white; */
 }
 
 .input__text:focus {
@@ -460,4 +460,36 @@ hr {
   top: 0;
   z-index: 999;
   background-color: var(--dialog-background);
+}
+
+
+.genchat_images{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 1rem;
+  width: 100%;
+  height: fit-content;
+  background-color: var(--theme-bg-grey-main-new);
+}
+
+.genchat_images--image{
+  width: 30%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.botton__download{
+  width: fit-content;
+  padding: 0.2rem;
+  height: fit-content;
+  border-top: 1px solid #4f90c6;
+  border-right: 1px solid #2b5b84;
+  border-bottom: 1px solid #1e415e;
+  border-left: 1px solid #4f90c6;
+  background-color: #2b5b84;
+  padding: 0.4rem 1rem 0.4rem 1rem;
+  color: white;
+  font-size: 0.7rem;
+  border-radius: 0.5rem;
 }

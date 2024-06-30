@@ -4,9 +4,11 @@
     --theme-bg-grey-scroll: rgba(204, 204, 206, 0.1);
     --theme-bg-button-nav: #77777e;
     --theme-bg-grey-main: #000c15;
+    --theme-bg-grey-main-new: #e8e8e8;
+
 }
 * {
-    margin: 0;
+    margin: 0;  
     padding: 0;
     box-sizing: border-box;
     font-size: 1rem;
@@ -48,10 +50,10 @@
 }
 
 .genchat__main--inputext:hover, .genchat__main--inputext:checked, .genchat__main--inputext:focus{
-    border: 2px solid rgb(255, 255, 121);
+    border: 2px solid rgb(0, 71, 2);
 }
 
 .name{
-    color: #FFCC00;
+    color: #018414;
     font-weight: bold;
 }

@@ -1,6 +1,8 @@
 ![Repo Size](https://img.shields.io/github/repo-size/ngnhthuong/AIO_TNTH)
 ![count](https://img.shields.io/github/languages/count/ngnhthuong/AIO_TNTH)
 
+<img src="../client/src/assets/images/longlogo.png" alt="Nguyen Nhat Thuong" width="50"/> 
+
 ## AIO_TNTH
 
 This product supports check beer Heneiken.

@@ -12,17 +12,6 @@ export default function Gennav() {
           <div className="main__left--func--item head">
             <i class="fab fa-rocketchat"></i> <span>Chatbox</span>
           </div>
-          <div className="main__left--func--item">
-            <i class="fas fa-scroll"></i> <span>Result generate</span>
-          </div>
-          <div className="main__left--func--item">
-            <i class="fas fa-highlighter"></i>
-            <span>Highlighter paper</span>
-          </div>
-          <div className="main__left--func--item">
-            <i class="fas fa-bug"></i>
-            <span>Report</span>
-          </div>
           <div className="main__left--func--item tail">
             <i class="fas fa-cog"></i> <span>Setting</span>
           </div>

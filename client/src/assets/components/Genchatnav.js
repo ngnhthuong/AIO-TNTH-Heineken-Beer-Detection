@@ -18,11 +18,10 @@ export default function Genchatnav() {
       </div>
 
       <div className="history__nav">
-        <div className="day_tags">15-06-2024</div>
+        <div className="day_tags">30-06-2024</div>
         <div className="genchat__nav--child">
           <p>
-            HowHow to usse githuHow to usse githuHow to usse githuHow to usse
-            githu to usse github
+            Heineken analyst 
           </p>
           <i class="fas fa-ellipsis-h" onClick={toggleDialog}></i>
           <div
@@ -32,32 +31,6 @@ export default function Genchatnav() {
             <Dialognavfunc toggleDialog={toggleDialog} />
           </div>
         </div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="day_tags">14-06-2024</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">
-          <p>HowHow to usse githuHow </p>
-        </div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
-        <div className="genchat__nav--child">How to usse github</div>
       </div>
     </div>
   );

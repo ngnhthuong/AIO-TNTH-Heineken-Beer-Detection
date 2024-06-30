@@ -1,16 +1,20 @@
 import React, { useState, useRef, useEffect } from "react";
-import sentImg from "../images/sent.png";
-import paperclip from "../images/paperclip.png";
+import sentImg from "../images/sent_new.png";
+import paperclip from "../images/paperclip_new.png";
 import Iconlogo from "../images/icon-logo.png";
 import axios from 'axios';
-
+import * as XLSX from 'xlsx';
+import { useTable } from 'react-table';
+import Loading from "../images/loading.gif";
 export default function Genchatmain() {
   const [message, setMessage] = useState("");
   const [fileObjects, setFileObjects] = useState([]);
   const fileInputRef = useRef(null);
   const [inputValue, setInputValue] = useState("");
   const [resultMessage, setResultMessage] = useState([]);
-
+  const [fileContent, setFileContent] = useState(null);
+  const [downloadUrl, setDownloadUrl] = useState('');
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     setInputValue("Name of chat");
   }, []);
@@ -22,6 +26,7 @@ export default function Genchatmain() {
   }, [fileObjects]);
 
   const handleSend = async () => {
+    setLoading(true);
     if (fileObjects.length > 0 || message.trim() !== "") {
       const formData = new FormData();
       if (fileObjects.length > 0) {
@@ -39,10 +44,33 @@ export default function Genchatmain() {
         const response = await axios.post('http://127.0.0.1:5000/api/upload', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
-          }
+          },
+          responseType: 'blob',
         });
-        setResultMessage(prevMessages => [...prevMessages, response.data]);
+
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        setDownloadUrl(url);
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const data = new Uint8Array(e.target.result);
+          const workbook = XLSX.read(data, { type: 'array' });
+          const sheetName = workbook.SheetNames[0];
+          const worksheet = workbook.Sheets[sheetName];
+          const json = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+          setFileContent(json);
+
+          const botResponse = {
+            "role": "AIO_TNTH",
+            "message": "Here's your processed file.",
+            "fileContent": json
+          };
+          setResultMessage(prevMessages => [...prevMessages, botResponse]);
+        };
+        reader.readAsArrayBuffer(response.data);
+        setLoading(false);
       } catch (error) {
+        setLoading(false);
         console.error('There was an error uploading the file!', error);
       }
 
@@ -80,6 +108,42 @@ export default function Genchatmain() {
     fileInputRef.current.click();
   };
 
+  const Table = ({ columns, data }) => {
+    const {
+      getTableProps,
+      getTableBodyProps,
+      headerGroups,
+      rows,
+      prepareRow,
+    } = useTable({ columns, data });
+
+    return (
+      <table {...getTableProps()}>
+        <thead>
+          {headerGroups.map(headerGroup => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map(column => (
+                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+              ))}
+            </tr>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map(row => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map(cell => (
+                  <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                ))}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    );
+  };
+
   return (
     <div className="genchat__main">
       <div className="genchat__main--head">
@@ -97,7 +161,7 @@ export default function Genchatmain() {
               <div className="genchat__avatar">
                 <img src={Iconlogo} alt="Bot Avatar" />
               </div>
-              <div className="name">AIO_TNTH</div>
+              <div className="name">Bots</div>
             </div>
             <div className="genchat__context">Hello I am AIO_TNT bot</div>
           </div>
@@ -108,14 +172,16 @@ export default function Genchatmain() {
                   <div className="genchat__avatar">
                     <img src={Iconlogo} alt="Bot Avatar" />
                   </div>
-                  <div className="name">AIO_TNTH</div>
+                  <div className="name">Bots</div>
                 </div>
-                <div className="genchat__context">{msg.message.tasks[0].output}</div>
-               <div className="genchat__context">{msg.message.tasks[1].output}</div>
-                <div className="genchat__context">{msg.message.tasks[2].output}</div>
-                <div className="genchat__context">{msg.message.tasks[3].output}</div>
-
-                </div>
+                <div className="genchat__context">{msg.message}</div>
+                <div className="genchat__context">
+                  {downloadUrl && (
+                    <a href={downloadUrl} download="output.xlsx">
+                      <button className="botton__download">Download Excel</button>
+                    </a>
+                  )}</div>
+              </div>
             ) : (
               <div className={`genchat__bots--message`} key={index}>
                 <div className="genchat__avatars">
@@ -125,9 +191,9 @@ export default function Genchatmain() {
                   <div className="name">You</div>
                 </div>
                 <div className="genchat__context">{msg.message}</div>
-                <div className="genchat__context">
+                <div className="genchat__context genchat_images">
                   {msg.files.map((file, index) => (
-                        <img key={index} src={file.url} alt={`Selected ${index}`} />
+                    <img className="genchat_images--image" key={index} src={file.url} alt={`Selected ${index}`} />
                   ))}
                 </div>
               </div>
@@ -137,11 +203,11 @@ export default function Genchatmain() {
 
         <div
           className="genchat__main--inputext"
-          style={{ minHeight: fileObjects.length > 0 ? "30%" : "20%" }}
+          style={loading ? { minHeight: '20%' } : { minHeight: fileObjects.length > 0 ? '30%' : '20%' }}
         >
           {fileObjects.length > 0 && (
             <>
-              <div className="genchat__main--displayimg">
+              <div className="genchat__main--displayimg" style={{ display: loading ? 'none' : '' }}>
                 {fileObjects.map((fileObj, index) => (
                   <div key={fileObj.id} className="image-container">
                     <img src={fileObj.url} alt={`Selected ${index}`} />
@@ -150,8 +216,8 @@ export default function Genchatmain() {
                     </button>
                   </div>
                 ))}
+                <hr />
               </div>
-              <hr />
             </>
           )}
           <textarea
@@ -171,9 +237,11 @@ export default function Genchatmain() {
               />
               <img src={paperclip} alt="Attach files" />
             </div>
-            <button className="button__send" onClick={handleSend}>
+            {loading ? (<button className="button__send">
+              <img src={Loading} alt="Send message" />
+            </button>) : (<button className="button__send" onClick={handleSend}>
               <img src={sentImg} alt="Send message" />
-            </button>
+            </button>)}
           </div>
         </div>
       </div>
