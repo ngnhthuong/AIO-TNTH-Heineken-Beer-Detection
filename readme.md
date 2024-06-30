@@ -25,7 +25,7 @@ This product supports check beer Heneiken.
 ### Frameworks and Libraries 
 
 ![Pytorch](https://img.shields.io/badge/Language-Pytorch-green)
-![YOLOv8](https://yolov8.com/)
+![YOLOv8](https://img.shields.io/badge/Yolo-green)
 
 ### Technique and Tools 
 
