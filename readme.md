@@ -8,7 +8,18 @@
 This product supports check beer Heneiken.
 
 <p align="middle">
-  
+
+### Environment setup
+```
+pip install -r requirements.txt
+#### Run website UI
+- cd ./client 
+- npm start
+#### Run API
+- cd ./server
+- python main.py
+``` 
+
 ### Contributors
 
 | Avatar | Name               | 
