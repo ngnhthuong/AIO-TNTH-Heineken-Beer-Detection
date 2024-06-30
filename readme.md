@@ -39,9 +39,11 @@ AIO_TNTH/
 │
 ├── client/   
 │   │
-│   ├── Coming soon             
+│   ├── public/            
 │   │ 
-│   └── Coming soon 
+│   ├── src/            
+│   │ 
+│   └── package.json 
 │
 ├── server/   
 │   │
