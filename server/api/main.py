@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 import os
 import keras
@@ -18,8 +18,10 @@ import pathlib
 from transformers import AutoProcessor, AutoModelForCausalLM
 import json
 import re
-from question_process import process_question, clean_response, yolo_v8
-
+from question_process import process_question, clean_response, yolo_v8, question_excel_create
+import openpyxl
+from openpyxl import Workbook
+import pandas as pd
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
 
@@ -50,15 +52,14 @@ def upload_file():
         file.save(file_path)
         file_paths.append(file_path)
     print("filepath: ", file_paths)
-    answer = process_question(file_paths)
     yolo_v8(file_paths)
-    print("file_path: ", file_paths)   
-    response = {
-        'role': 'AIO_TNTH',
-        'message': answer,
-        'files': file_paths
-    }
-    return jsonify(response), 200
+    # Generate Excel file
+    path_excel_file = question_excel_create(file_paths)    
+    try:
+        return send_file(path_excel_file, as_attachment=True)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 
 @app.route('/api/message', methods=['POST'])
 def handle_message():
