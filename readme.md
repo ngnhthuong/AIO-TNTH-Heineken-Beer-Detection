@@ -12,10 +12,10 @@ This product supports check beer Heneiken.
 ### Environment setup
 ```
 pip install -r requirements.txt
-#### Run website UI
+* Run website UI
 - cd ./client 
 - npm start
-#### Run API
+* Run API
 - cd ./server
 - python main.py
 ``` 
