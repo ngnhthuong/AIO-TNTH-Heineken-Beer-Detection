@@ -28,6 +28,7 @@ pip install -r requirements.txt
 |       | Nguyen Thi Nam Phuong | 
 |       | Tran Van Thien | 
 |       | Mai Duc Minh Huy | 
+|       | Nguyen Phuoc Khoi | 
 
 ### Programming Languages 
 
