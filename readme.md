@@ -5,7 +5,9 @@
 
 ## AIO_TNTH
 
-This product supports check beer Heneiken.
+This project is made for AngelHack (hackHCM). This project showcases an AI chatbot designed to analyze the number of people consuming Heineken beer, assess people's emotions, determine the count of marketing staff, and gather information about their backgrounds. It then compiles and exports these details into an Excel file.
+
+https://github.com/khoisday/AIO_TNTH/assets/86087565/aff4fb93-57d9-4303-9929-796ba4ae0c0d
 
 <p align="middle">
 
@@ -16,7 +18,7 @@ pip install -r requirements.txt
 - cd ./client 
 - npm start
 * Run API
-- cd ./server
+- cd ./server/api
 - python main.py
 ``` 
 
@@ -70,6 +72,6 @@ AIO_TNTH/
 └── readme.md             
 ```
 
-You can also follow my GitHub Profile to stay updated about my latest projects: [![GitHub Follow](https://img.shields.io/badge/Connect-IronCoder-blue.svg?logo=Github&longCache=true&style=social&label=Follow)](https://github.com/ngnhthuong)
+You can also follow my GitHub Profile to stay updated about my latest projects: [![GitHub Follow](https://img.shields.io/badge/Connect-ngnhthuong-blue.svg?logo=Github&longCache=true&style=social&label=Follow)](https://github.com/ngnhthuong)
 
-If you liked the repo then please support it by giving it a star ⭐!
+If you liked the repo, please support it by giving it a star ⭐!
